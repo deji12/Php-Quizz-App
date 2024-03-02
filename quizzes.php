@@ -1,23 +1,20 @@
+<?php
+
+require_once 'includes/quiz_view.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Quizzes</title>
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
 
-    <div class="nav">
-        <p>QUIZ MANIA</p>
-        <ul>
-            <li>Login</li>
-            <li>Register</li>
-            <li>Results</li>
-            <li><a href="./quizzes.html">Quizzes</a></li>
-            <li>Logout</li>
-        </ul>
-    </div>
+    <?php include 'nav.php'; ?>
 
     <div class="container">
         <div class="question-body">
@@ -27,34 +24,9 @@
                 <span>Questions number</span>
                 <span>Duration</span>
             </div>
-            <div class="info">
-                <span>Quiz name</span>
-                <span>Questions left</span>
-            </div>
-            <div class="info">
-                <span>Quiz name</span>
-                <span>Questions left</span>
-            </div>
-            <div class="info">
-                <span>Quiz name</span>
-                <span>Questions left</span>
-            </div>
-            <div class="info">
-                <span>Quiz name</span>
-                <span>Questions left</span>
-            </div>
-            <div class="info">
-                <span>Quiz name</span>
-                <span>Questions left</span>
-            </div>
-            <div class="info">
-                <span>Quiz name</span>
-                <span>Questions left</span>
-            </div>
-            <div class="info">
-                <span>Quiz name</span>
-                <span>Questions left</span>
-            </div>
+
+            <?php display_quizzes(); ?>
+            
             
         </div>
     </div>

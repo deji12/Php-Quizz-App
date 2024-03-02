@@ -1,7 +1,7 @@
 <div class="nav">
     <p>QUIZ MANIA</p>
     <ul>
-        <li><a href="#">Quizzes</a></li>
+        <li><a href="quizzes.php">Quizzes</a></li>
 
         <?php 
 

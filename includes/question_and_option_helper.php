@@ -24,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         create_question_and_options($pdo, $question, $options, $quiz_id, $correct_option);
 
+        header("Location: ../add_question.php?quiz_id=$id");
+        die();
+
     } catch (Exception $e) {
         die("Error: " . $e->getMessage());
     }

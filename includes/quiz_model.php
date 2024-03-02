@@ -13,3 +13,11 @@ function create_quiz($pdo, string $title, int $duration) {
 
     return $pdo->lastInsertId();
 }
+
+function get_quizzes(object $pdo){
+    $query = "SELECT * FROM Quiz;";
+    $statement = $pdo->prepare($query);
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
