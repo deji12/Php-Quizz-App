@@ -22,13 +22,19 @@ if (!isset($_GET["quiz_id"])){
    <div class="center" style="min-width: 75%; margin-top: 20px;">
       <h2>Add Question</h2>  
 
-      <form method="POST" action="includes/quiz_helper.php">
+      <form method="POST" action="includes/question_and_option_helper.php">
 
         <div class="txt_field">
-          <input type="text" required name="title">
+          <input type="text" required name="question">
           <span></span>
           <label>Question</label>
         </div>
+
+        <?php 
+        
+        echo '<input type="text" name="quiz_id" value="' . $_GET['quiz_id'] . '" hidden>';
+
+        ?>
 
         <div class="txt_field">
           <input type="text" required name="option1">
@@ -50,10 +56,10 @@ if (!isset($_GET["quiz_id"])){
           <span></span>
           <label>Option 4</label>
         </div>
-        Option 1 <input type="radio" name="correct" value="1" id="">
-        Option 2 <input type="radio" name="correct" value="2" id="">
-        Option 3 <input type="radio" name="correct" value="3" id="">
-        Option 4 <input type="radio" name="correct" value="4" id="">
+        Option 1 <input type="radio" name="correct_option" value="1" id="">
+        Option 2 <input type="radio" name="correct_option" value="2" id="">
+        Option 3 <input type="radio" name="correct_option" value="3" id="">
+        Option 4 <input type="radio" name="correct_option" value="4" id="">
         <!-- <div class="pass">Forgot Password?</div> -->
         <br><br><input type="submit" value="Add question">
         <br><br>
