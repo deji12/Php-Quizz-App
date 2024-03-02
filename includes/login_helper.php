@@ -16,9 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $get_user = get_user($pdo, $username);
 
         if ($validate_data->validate($get_user)) {
-            $_SESSION["user_id"] = $get_user["id"];
-            $_SESSION["user_username"] = $get_user["username"];
-
+            $_SESSION["user"] = $get_user;
             header("Location: ../index.php");
             die();
         }

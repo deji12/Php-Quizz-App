@@ -8,16 +8,7 @@
 </head>
 <body>
 
-    <div class="nav">
-        <p>QUIZ MANIA</p>
-        <ul>
-            <li>Login</li>
-            <li>Register</li>
-            <li>Results</li>
-            <li>Quizzes</li>
-            <li>Logout</li>
-        </ul>
-    </div>
+   <?php include 'nav.php'; ?>
 
     <div class="container">
         <div class="question-body">
