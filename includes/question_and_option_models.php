@@ -5,8 +5,11 @@ declare(strict_types=1);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-function update_question_number(){
-
+function update_question_number(object $pdo, int $quiz_id){
+    $query = "UPDATE Quiz SET number_of_questions = number_of_questions + 1 WHERE id = :quiz_id;";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(':quiz_id', $quiz_id);
+    $statement->execute();
 }
 
 function get_quiz(object $pdo, int $quiz_id) {
@@ -28,6 +31,7 @@ function create_question_and_options(object $pdo, string $question, array $optio
     $statement->execute();
 
     $question_id = $pdo->lastInsertId();
+
     $option_number = 1;
 
     foreach ($options as $option) {
@@ -48,4 +52,6 @@ function create_question_and_options(object $pdo, string $question, array $optio
 
         $option_number ++;
     }
+
+    update_question_number($pdo, intval($quiz_id));
 }
