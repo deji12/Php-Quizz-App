@@ -9,7 +9,7 @@
 
 
         if ($_SESSION["user"]["is_admin"]) {
-            echo '<li><a href="create_question.php">Add Quiz</a></li>';
+            echo '<li><a href="create_quiz.php">Add Quiz</a></li>';
         } else {
             echo '<li><a href="#">Results</a></li>';
         }

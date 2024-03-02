@@ -11,29 +11,26 @@
 
    <?php include 'nav.php'; ?>
 
-   <div class="center" style="min-width: 75%;">
+   <div class="center" style="min-width: 35%;">
       <h2>Create Quiz</h2>  
 
-      <form method="POST" action="includes/login_helper.php">
+      <form method="POST" action="includes/quiz_helper.php">
 
         <div class="txt_field">
-          <input type="text" required name="username">
+          <input type="text" required name="title">
           <span></span>
           <label>Title</label>
         </div>
 
         <div class="txt_field">
-          <input type="number" required name="duration">
+          <input type="number" min="5" required name="duration">
           <span></span>
           <label>Duration (In minutes)</label>
         </div>
 
         <!-- <div class="pass">Forgot Password?</div> -->
-        <input type="submit" value="Login">
-        <div class="signup_link">
-          Not a member? <a href="register.php">Signup</a>
-          <!-- <p>Forgot your Password? <a href="{% url 'reset_password' %}">Reset Password</a></p>  -->
-        </div>
+        <input type="submit" value="Create Quiz">
+        <br><br>
       </form>
     </div>
     

@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+CREATE TABLE options (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+    option_letter VARCHAR(10) NOT NULL,
+    option_content VARCHAR(200) NOT NULL,
+    correct_option INT(11) DEFAULT 0,
+    question_id INT(11) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (question_id) REFERENCES questions (id) ON DELETE CASCADE
+);
