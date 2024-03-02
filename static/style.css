@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.nav ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav ul li:hover {
+    background-color: #007bff;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.container {
+    height: 100vh;
+    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-body {
+    width: 90%;
+    min-width: 50%;
+    max-height: 500px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    display: flex;
+   flex-direction: column;
+}
+
+.info {
+    height: 80px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.info > span:first-child {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.question-content {
+    height: 460px;
+    padding: 20px;
+    
+}
+
+.question-content .question {
+    font-weight: bold;
+    
+}
+
+.options > label {
+    display: block;
+    height: 60px;
+    background-color: aliceblue;
+    margin-bottom: 10px;
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+button {
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    background: #007bff;
+    border: 1px solid #007bff;
+    line-height: 10px;
+}
+
+#error {
+    color: firebrick;
+    font-weight: bold;
+    display: none;
+}
