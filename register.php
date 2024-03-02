@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 
 require_once 'includes/register_view.php'
@@ -12,15 +15,15 @@ require_once 'includes/register_view.php'
   <head>
     <meta charset="utf-8">
     <title>Todo list | Register</title>
-    <link rel="stylesheet" href="../static/auth.css">
-  </head>
+    <link rel="stylesheet" href="./static/auth.css">
+  </head> 
   <body>
     <div class="center">
-      <h1>Register</h1>
+      <h2>Register</h2>
 
       <?php check_for_errors(); ?>
         
-      <form method="post" action="includes/register_helper.php">
+      <form method="post" action="./includes/register_helper.php">
       
         <div class="txt_field">
           <input type="text" required name="username">

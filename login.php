@@ -1,14 +1,23 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Todo list | Login</title>
-    <link rel="stylesheet" href="static/auth.css">
+    <link rel="stylesheet" href="./static/auth.css">
   </head>
   <body>
     <div class="center">
-      <h1>Login</h1>  
+      <h2>Login</h2>  
       <form method="POST" action="../helpers/login_helper.php">
 
         <div class="txt_field">

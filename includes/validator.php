@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class Validate {
+class RegisterValidator {
     private $username;
     private $password;
     private $email;
