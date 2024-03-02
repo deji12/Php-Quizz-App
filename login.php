@@ -3,6 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+require_once 'includes/login_view.php';
+
 session_start();
 
 ?>
@@ -18,7 +20,10 @@ session_start();
   <body>
     <div class="center">
       <h2>Login</h2>  
-      <form method="POST" action="../helpers/login_helper.php">
+
+      <?php check_for_message(); ?>
+
+      <form method="POST" action="includes/login_helper.php">
 
         <div class="txt_field">
           <input type="text" required name="username">
