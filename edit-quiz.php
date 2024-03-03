@@ -6,6 +6,8 @@ if (!isset($_GET["quiz_id"])){
     die();
 }
 
+require_once 'includes/edit-quiz-view.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +24,11 @@ if (!isset($_GET["quiz_id"])){
    <?php include 'nav.php'; ?>
 
    <div class="center" style="min-width: 35%;">
-      <h2>Edit Quiz</h2>  
+      <h2>Edit Quiz</h2> 
+      
+      <?php display_error() ?>
 
-      <form method="POST" action="includes/quiz_helper.php">
+      <form method="POST" action="<?php echo 'includes/edit-quiz-helper.php?quiz_id=' . $_GET["quiz_id"] . '' ?>">
 
       <?php 
 
@@ -49,7 +53,7 @@ if (!isset($_GET["quiz_id"])){
       ?>
 
         <!-- <div class="pass">Forgot Password?</div> -->
-        <input type="submit" value="Create Quiz">
+        <input type="submit" value="Update Quiz">
         <br><br>
       </form>
     </div>
