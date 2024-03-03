@@ -31,7 +31,7 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
     <div class="container" id="brief">
         <div class="question-body">
             <div class="info">
-                <?php echo '<span>' . $quiz["title"] . '</span>' ?>
+            <?php echo '<span>' . $quiz["title"] . ' - <a href="edit-quiz.php?quiz_id=' . $_GET["quiz_id"]. '">Edit</a></span>' ?>
                 <?php echo '<span> Number of questions: ' . $quiz["number_of_questions"] . '</span>' ?>
                 <!-- <span id="time" style="padding: 10px;">00:15</span> -->
             </div>
