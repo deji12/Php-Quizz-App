@@ -6,7 +6,7 @@ if (!isset($_GET["quiz_id"])){
     die();
 }
 
-require_once 'includes/edit-quiz-view.php';
+require_once 'includes/quiz-view.php';
 
 ?>
 

@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once 'includes/quiz-view.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +18,8 @@
 
    <div class="center" style="min-width: 35%;">
       <h2>Create Quiz</h2>  
+
+      <?php display_error() ?>
 
       <form method="POST" action="includes/quiz_helper.php">
 

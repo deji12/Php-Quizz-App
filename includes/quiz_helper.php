@@ -9,10 +9,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST["title"];
     $duration = $_POST["duration"];
 
+    $errors = [];
+
     try {
 
         require_once 'db.php';
         require_once 'quiz_model.php';
+
+        if (empty($title)) {
+            $errors["empty_title"] = "Please enter a title";
+        }
+        if (empty($duration)) {
+            $errors["empty_duration"] = "Please enter a duration";
+        }
+
+        if (intval($duration) < 5){
+            $errors["short_duration"] = "The duration is too short.";
+        }
+
+        $_SESSION["quiz_errors"] = $errors;
+
+        if(!empty($errors)){
+            header("Location: ../create_quiz.php");
+            die();
+        }
 
         $new_quiz_id = create_quiz($pdo, $title, intval($duration));
 

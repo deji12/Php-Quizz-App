@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $quiz = get_quiz($pdo, $quiz_id);
 
-        if ($quiz["title"] !== $title && $title) {
+        if ($quiz["title"] !== $title && !empty($title)) {
             update_quiz_title($pdo, $title, intval($quiz_id));
         }
 
-        if ($quiz["duration"] !== intval($duration) && $duration) {
+        if ($quiz["duration"] !== intval($duration) && !empty($duration)) {
             if (intval($duration) < 5){
 
                 $errors["short_duration"] = "The duration is too short.";
