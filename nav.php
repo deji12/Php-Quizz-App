@@ -6,27 +6,28 @@
 ?>
 
 <div class="nav">
-    <?php echo '<p>' . $_SESSION["user"]["first_name"] . ' ' .  $_SESSION["user"]["last_name"] . '</p>'; ?>
-    <ul>
-        <li><a href="index.php">Quizzes</a></li>
-
-        <?php
-
-        if ($_SESSION["user"]["is_admin"]) {
-            echo '<li><a href="create_quiz.php">Add Quiz</a></li>';
-        } else {
-            echo '<li><a href="#">Results</a></li>';
-        }
-
-        if (!isset($_SESSION["user"])){
-            echo '<li><a href="login.php">Login</a></li>';
-            echo '<li><a href="register.php">Register</a></li>';
-        } else {
-            echo '<li><a href="includes/logout.php">Logout</a></li>';
-        }
+    <?php 
+        echo '<p style="color: #638CB8;"><b>' . $_SESSION["user"]["username"] . '</b></p>';
+        echo '<ul>';
 
 
-        ?>
+            if ($_SESSION["user"]["is_admin"]) {
+                echo '<li><a href="index.php">Quizzes</a></li>';
+                echo '<li><a href="my_quizzes.php">My Quizzes</a></li>';
+                echo '<li><a href="create_quiz.php">Add Quiz</a></li>';
+            } else {
+                echo '<li><a href="index.php">Quizzes</a></li>';
+                echo '<li><a href="#">Results</a></li>';
+            }
 
-    </ul>
+            if (!isset($_SESSION["user"])){
+                echo '<li><a href="auth/login.php">Login</a></li>';
+                echo '<li><a href="auth/register.php">Register</a></li>';
+            } else {
+                echo '<li><a href="auth/logout.php">Logout</a></li>';
+            }
+
+
+        echo '</ul>';
+    ?>
 </div>
