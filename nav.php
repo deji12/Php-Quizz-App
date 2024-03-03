@@ -3,7 +3,6 @@
     require_once 'includes/validator.php';
     login_required();
     
-
 ?>
 
 <div class="nav">
