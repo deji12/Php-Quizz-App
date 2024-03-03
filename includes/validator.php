@@ -36,8 +36,13 @@ class RegisterValidator {
         if (get_username($this->pdo, $this->username)) {
             $errors["username_taken"] = "Username already taken!";
         }
+
         if (get_email($this->pdo, $this->email)) {
             $errors["email_taken"] = "Email already taken!";
+        }
+        
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+            $errors["invalid_email"] = "You have entered an invalid email!";
         }
 
         if ($errors) {

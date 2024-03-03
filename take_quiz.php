@@ -20,7 +20,13 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
 </head>
 <body>
 
-   <?php include 'nav.php'; ?>
+   <?php 
+   include 'nav.php'; 
+   
+   echo '<script>const quizDuration = ' . $quiz['duration'] * 60 . ';</script>';
+   ?>
+
+   
 
     <div class="container" id="brief">
         <div class="question-body">
@@ -47,9 +53,8 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
     <div class="container" id="quiz-container">
         <div class="question-body">
             <div class="info">
-                <?php echo '<span>' . $quiz["title"] . '</span>' ?>
-                <span>17/20</span>
-                <!-- <span id="time" style="padding: 10px;">00:15</span> -->
+                <?php echo '<span>' . $quiz["title"] . '</span>'; ?>
+                <span id="time" style="padding: 10px;"></span> 
             </div>
             
             <?php 
