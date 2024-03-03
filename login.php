@@ -1,11 +1,13 @@
 <?php
+session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'includes/login_view.php';
+require_once 'includes/validator.php';
+login_acquired();
 
-session_start();
+require_once 'includes/login_view.php';
 
 ?>
 

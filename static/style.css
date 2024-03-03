@@ -60,6 +60,11 @@
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* Adjust the background color as needed */
+    padding: 10px;
+    z-index: 100; /* Ensure the info div is above the scrolling content */
 }
 
 .info > span:first-child {

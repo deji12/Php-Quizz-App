@@ -84,3 +84,17 @@ class LoginValidator{
         }
     }
 }
+
+function login_required(){
+    if(!isset($_SESSION["user"])){
+        header("Location: login.php");
+        die();
+    } 
+}
+
+function login_acquired(){
+    if(isset($_SESSION["user"])){
+        header("Location: index.php");
+        die();
+    } 
+}

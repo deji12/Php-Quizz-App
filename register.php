@@ -5,6 +5,9 @@ ini_set('display_errors', 1);
 
 session_start();
 
+require_once 'includes/validator.php';
+login_acquired();
+
 require_once 'includes/register_view.php'
 
 ?>

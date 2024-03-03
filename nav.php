@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php
+
+    session_start();
+
+    require_once 'includes/validator.php';
+    login_required();
+    
+
+?>
 
 <div class="nav">
     <?php echo '<p>' . $_SESSION["user"]["first_name"] . ' ' .  $_SESSION["user"]["last_name"] . '</p>'; ?>

@@ -1,9 +1,6 @@
 <?php
 
-function display_questions($quiz_id){
-
-    require_once 'db.php';
-    require_once 'question_and_option_models.php';
+function display_questions($pdo, $quiz_id){
 
     $questions = get_questions($pdo, $quiz_id);
 
