@@ -7,6 +7,7 @@ if (!isset($_GET["quiz_id"])){
 
 require_once 'includes/db.php';
 require_once 'includes/question_and_option_models.php';
+require_once 'includes/render_questions.php';
 
 $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
 ?>
@@ -32,7 +33,7 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
         <div class="question-body">
             <div class="info">
             <?php echo '<span>' . $quiz["title"] . ' - <a href="edit-quiz.php?quiz_id=' . $_GET["quiz_id"]. '">Edit</a></span>' ?>
-                <?php echo '<span> Number of questions: ' . $quiz["number_of_questions"] . '</span>' ?>
+                <?php echo '<span> No. questions: ' . $quiz["number_of_questions"] . '</span>' ?>
                 <!-- <span id="time" style="padding: 10px;">00:15</span> -->
             </div>
             
@@ -54,11 +55,14 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
         <div class="question-body">
             <div class="info">
                 <?php echo '<span>' . $quiz["title"] . '</span>'; ?>
-                <span id="time" style="padding: 10px;"></span> 
+                <?php 
+                    if (!$_SESSION["user"]["is_admin"]) {
+                        echo '<span id="time" style="padding: 10px;"></span> ';
+                    }
+                ?>
             </div>
             
-            <?php 
-                require_once 'includes/render_questions.php';
+            <?php
 
                 display_questions($pdo, $_GET["quiz_id"]);
             ?>

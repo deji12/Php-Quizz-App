@@ -22,7 +22,7 @@ require_once 'includes/quiz_view.php';
 
             <div class="info">
                 <span>Quiz name</span>
-                <span>Questions number</span>
+                <span>No. Question</span>
                 <span>Duration</span>
             </div>
 

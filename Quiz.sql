@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 03, 2024 at 11:04 AM
+-- Generation Time: Mar 03, 2024 at 08:40 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -92,7 +92,7 @@ CREATE TABLE `Quiz` (
 --
 
 INSERT INTO `Quiz` (`id`, `title`, `duration`, `number_of_questions`, `number_of_enteries`, `number_of_passes`, `number_of_fails`, `created_at`, `creator_id`) VALUES
-(3, 'Third Quiz', 7, 2, NULL, NULL, NULL, '2024-03-02 07:11:25', 3);
+(3, 'Programming  ', 5, 2, NULL, NULL, NULL, '2024-03-02 07:11:25', 3);
 
 -- --------------------------------------------------------
 
@@ -218,7 +218,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `Quiz`
 --
 ALTER TABLE `Quiz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `Result`

@@ -3,9 +3,9 @@
 function display_questions($pdo, $quiz_id){
 
     $questions = get_questions($pdo, $quiz_id);
+    $quiz = get_quiz($pdo, $quiz_id);
 
     $question_number = 1;
-
     echo '<form action="" id="question_form">';
 
     foreach ($questions as $question) {
@@ -14,7 +14,8 @@ function display_questions($pdo, $quiz_id){
     
         echo '<div class="question-content">
                 <span id="error"> <br></span>
-                <span class="question">' . $question_number . '. ' . $question["question"] . '</span><br><br>
+                <span class="question">' . $question_number . '. ' . $question["question"] . ($_SESSION["user"]["id"] == $quiz["creator_id"] ? ' - <a href="edit-question.php?question_id=' . $question["id"] . '">Edit</a>' : '') . '</span><br><br>
+
                 <div class="options">';
                 
         // Loop through options and display radio buttons

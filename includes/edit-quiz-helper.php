@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             update_quiz_duration($pdo, intval($duration), intval($quiz_id));
         }
 
-        header("Location: ../my_quizzes.php");
+        header("Location: ../take_quiz.php?quiz_id=$quiz_id");
         die();
 
     } catch (Exception $e) {
