@@ -1,12 +1,11 @@
+<?php session_start(); ?>
+
 <div class="nav">
-    <p>QUIZ MANIA</p>
+    <?php echo '<p>' . $_SESSION["user"]["first_name"] . ' ' .  $_SESSION["user"]["last_name"] . '</p>'; ?>
     <ul>
-        <li><a href="quizzes.php">Quizzes</a></li>
+        <li><a href="index.php">Quizzes</a></li>
 
-        <?php 
-
-        session_start();
-
+        <?php
 
         if ($_SESSION["user"]["is_admin"]) {
             echo '<li><a href="create_quiz.php">Add Quiz</a></li>';

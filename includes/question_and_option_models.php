@@ -12,6 +12,24 @@ function update_question_number(object $pdo, int $quiz_id){
     $statement->execute();
 }
 
+function get_questions(object $pdo, int $quiz_id){
+    $query = "SELECT * FROM questions where quiz_id = :quiz_id;";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(':quiz_id', $quiz_id);
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function get_options(object $pdo, int $question_id){
+    $query = "SELECT * FROM options where question_id = :question_id;";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(':question_id', $question_id);
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 function get_quiz(object $pdo, int $quiz_id) {
     $query = "SELECT * FROM Quiz WHERE id = :quiz_id;";
     $statement = $pdo->prepare($query);
