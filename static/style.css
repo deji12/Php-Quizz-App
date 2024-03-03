@@ -29,14 +29,14 @@
 }
 
 .nav ul li a:hover {
-    background-color: #007bff;
+    background-color: #638CB8;
     border-radius: 5px;
     color: #fff;
 }
 
 .container {
     height: 100vh;
-    background-color: #007bff;
+    background-color: #638CB8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,8 +107,8 @@ button {
     outline: none;
     color: #fff;
     border-radius: 5px;
-    background: #007bff;
-    border: 1px solid #007bff;
+    background: #638CB8;
+    border: 1px solid #638CB8;
     line-height: 10px;
 }
 
