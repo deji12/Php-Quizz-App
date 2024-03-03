@@ -1,6 +1,10 @@
 const radioButtons = document.querySelectorAll('.options input[type="radio"]');
 const form = document.getElementById('question_form');
 const errorMsg = document.getElementById('error');
+const brief = document.getElementById('brief');
+const quizContainer = document.getElementById('quiz-container');
+const quitBtn = document.getElementById('quit');
+const startBtn = document.getElementById('start');
 
 // Function to check if any radio button is selected
 function checkIfSelected() {
@@ -22,3 +26,12 @@ form.addEventListener('submit', function (e){
         form.submit();
     }
 })
+
+quitBtn.addEventListener('click', function (){
+    window.location.href = 'index.php';
+});
+
+startBtn.addEventListener('click', function (){
+    brief.style.display = 'none';
+    quizContainer.style.display = 'flex';
+});

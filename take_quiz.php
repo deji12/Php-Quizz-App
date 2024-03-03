@@ -7,6 +7,8 @@ if (!isset($_GET["quiz_id"])){
 
 require_once 'includes/db.php';
 require_once 'includes/question_and_option_models.php';
+
+$quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +22,32 @@ require_once 'includes/question_and_option_models.php';
 
    <?php include 'nav.php'; ?>
 
-    <div class="container">
+    <div class="container" id="brief">
         <div class="question-body">
             <div class="info">
-                <?php echo '<span>' . get_quiz($pdo, intval($_GET["quiz_id"]))["title"] . '</span>' ?>
+                <?php echo '<span>' . $quiz["title"] . '</span>' ?>
+                <?php echo '<span> Number of questions: ' . $quiz["number_of_questions"] . '</span>' ?>
+                <!-- <span id="time" style="padding: 10px;">00:15</span> -->
+            </div>
+            
+            <?php echo '<div class="info">1. You will have a total of ' . $quiz["duration"] . ' minutes for this quiz.</div>' ?>
+            <div class="info">2. Answers selected can be changed.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're taking it, or it will auto submit.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+            <center>
+            <div class="buttons">
+                <button style="margin: 10px;" id="quit">Exit Quiz</button>
+                <button style="margin: 10px;" id="start">Continue</button>
+            </div>
+            </center>
+        </div>
+    </div>
+
+    <div class="container" id="quiz-container">
+        <div class="question-body">
+            <div class="info">
+                <?php echo '<span>' . $quiz["title"] . '</span>' ?>
                 <span>17/20</span>
                 <!-- <span id="time" style="padding: 10px;">00:15</span> -->
             </div>
@@ -37,5 +61,6 @@ require_once 'includes/question_and_option_models.php';
         </div>
     </div>
 <script src="./static/countdown.js"></script>
+<script src="./static/scripts.js"></script>
 </body>
 </html>

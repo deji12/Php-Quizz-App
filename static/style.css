@@ -12,6 +12,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* Adjust the background color as needed */
+    z-index: 100; /* Ensure the info div is above the scrolling content */
 }
 
 .nav ul li {
@@ -111,5 +115,9 @@ button {
 #error {
     color: firebrick;
     font-weight: bold;
+    display: none;
+}
+
+#quiz-container {
     display: none;
 }
