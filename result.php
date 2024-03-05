@@ -40,7 +40,7 @@ require_once 'includes/result_model.php';
 
                     echo '<div class="info">
                             <h4>' . $quiz["title"] . ' </h4>
-                            <span>' . $result["grade"] . ' </span>
+                            <span>' . $result["grade"] . '/100</span>
                             <span>' . date('F j, Y, g:i a', strtotime($result["created_at"])) . '</span>
                         </div>';
 

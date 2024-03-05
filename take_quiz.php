@@ -89,5 +89,17 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
     </div>
 <script src="./static/countdown.js"></script>
 <script src="./static/scripts.js"></script>
+
+<script>
+    const formSubmitBtn = document.getElementById('quiz-submit-btn');
+    formSubmitBtn.addEventListener('click', function (e){
+        if (confirm("You are about to submit quiz\nOnce submit, you will be graded immediately") == true) {
+            form.submit();
+        } else {
+            e.preventDefault();
+        }
+    })
+
+</script>
 </body>
 </html>
