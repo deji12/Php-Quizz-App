@@ -19,6 +19,16 @@ function get_questions(object $pdo, int $quiz_id){
     return $result;
 }
 
+function is_option_correct(object $pdo, $question_id, $selected_option){
+    $query = "SELECT * FROM options where question_id = :question_id AND option_number = :selected_option AND correct_option = 1;";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(':question_id', $question_id);
+    $statement->bindParam(':selected_option', $selected_option);
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 function get_question(object $pdo, int $question_id){
     $query = "SELECT * FROM questions where id = :question_id;";
     $statement = $pdo->prepare($query);

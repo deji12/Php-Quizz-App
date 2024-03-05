@@ -18,6 +18,7 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -61,7 +62,7 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
 
     <div class="container" id="quiz-container">
         <div class="question-body">
-            <div class="info">
+            <div class="info header">
                 <?php echo '<span>' . $quiz["title"] . '</span>'; ?>
                 <?php 
                     if (!$_SESSION["user"]["is_admin"]) {

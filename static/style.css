@@ -64,6 +64,9 @@
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+.header {
     position: sticky;
     top: 0;
     background-color: #fff; /* Adjust the background color as needed */
@@ -77,7 +80,7 @@
 }
 
 .question-content {
-    height: 460px;
+    height: 350px;
     padding: 20px;
     
 }

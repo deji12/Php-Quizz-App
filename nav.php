@@ -17,7 +17,7 @@
                 echo '<li><a href="create_quiz.php">Add Quiz</a></li>';
             } else {
                 echo '<li><a href="index.php">Quizzes</a></li>';
-                echo '<li><a href="#">Results</a></li>';
+                echo '<li><a href="result.php">Results</a></li>';
             }
 
             if (!isset($_SESSION["user"])){

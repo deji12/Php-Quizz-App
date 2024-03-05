@@ -6,7 +6,7 @@ function display_questions($pdo, $quiz_id){
     $quiz = get_quiz($pdo, $quiz_id);
 
     $question_number = 1;
-    echo '<form action="" id="question_form">';
+    echo '<form method="POST" action="includes/process-quiz-submission.php?quiz_id=' . $quiz_id . '" id="question_form">';
 
     foreach ($questions as $question) {
 
@@ -21,7 +21,7 @@ function display_questions($pdo, $quiz_id){
         // Loop through options and display radio buttons
         foreach ($options as $option) {
             echo '<label>
-                    <span><input type="radio" name="option[' . $question_number . ']" value="' . $option["option_number"] . '" id="option' . $option["option_number"] . '"> ' . $option["option_content"] . '</span>
+                    <span><input type="radio" name="option[' . $question["id"] . ']" value="' . $option["option_number"] . '" id="option' . $option["option_number"] . '"> ' . $option["option_content"] . '</span>
                   </label>';
         }
         
@@ -29,6 +29,8 @@ function display_questions($pdo, $quiz_id){
     
         $question_number++;
     }
+
+    echo '<center><button type="submit" style="margin: 10px;">Submit</button></center>';
 
     echo '</form>';
 }
