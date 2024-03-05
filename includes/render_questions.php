@@ -30,7 +30,7 @@ function display_questions($pdo, $quiz_id){
         $question_number++;
     }
 
-    echo '<center><button type="submit" style="margin: 10px;">Submit</button></center>';
+    echo '<center><button type="button" id="quiz-submit-btn" style="margin: 10px;">Submit</button></center>';
 
     echo '</form>';
 }

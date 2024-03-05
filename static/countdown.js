@@ -1,6 +1,7 @@
 const startBtn = document.getElementById('start');
 const brief = document.getElementById('brief');
 const quizContainer = document.getElementById('quiz-container');
+const form = document.getElementById('question_form');
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -16,6 +17,10 @@ function startTimer(duration, display) {
         if (timer <= 20) {
             display.style.fontWeight = 'bold';
             display.style.color = 'firebrick';
+        }
+
+        if (timer == 0) {
+            form.submit();
         }
 
         if (--timer < 0) {
