@@ -34,7 +34,7 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
             <?php 
 
                 if ($_SESSION["user"]["id"] == $quiz["creator_id"]) {
-                    echo '<span>' . $quiz["title"] . ' - <a href="edit-quiz.php?quiz_id=' . $_GET["quiz_id"]. '">Edit</a></span>'; 
+                    echo '<span>' . $quiz["title"] . '</a></span>'; 
                 } else {
                     echo '<span>' . $quiz["title"] . '</span>';
                 }
@@ -45,7 +45,16 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
             <?php echo '<span> No. questions: ' . $quiz["number_of_questions"] . '</span>' ?>
                 <!-- <span id="time" style="padding: 10px;">00:15</span> -->
             </div>
-            
+
+            <?php 
+                if ($_SESSION["user"]["id"] == $quiz["creator_id"]) {
+                    echo '<div class="info">
+                                <a href="add_question.php?quiz_id=' . $_GET["quiz_id"] . '">Add question</a>
+                                <span>|</span>
+                                <a href="edit-quiz.php?quiz_id=' . $_GET["quiz_id"] . '"> Edit Quiz details </a>
+                            </div>';
+                }
+            ?>
             <?php echo '<div class="info">1. You will have a total of ' . $quiz["duration"] . ' minutes for this quiz.</div>' ?>
             <div class="info">2. Answers selected can be changed.</div>
             <div class="info">3. You can't select any option once time goes off.</div>

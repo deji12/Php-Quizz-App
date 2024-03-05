@@ -24,7 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         create_question_and_options($pdo, $question, $options, $quiz_id, $correct_option);
 
-        header("Location: ../add_question.php?quiz_id=$id");
+        $_SESSION["question_creation_success"] = "Question created successfully. Add another or exit";
+
+        header("Location: ../add_question.php?quiz_id=$quiz_id");
         die();
 
     } catch (Exception $e) {

@@ -12,7 +12,7 @@ function new_result(object $pdo, int $quiz_id, int $student_id, int $grade) {
 }
 
 function get_results(object $pdo){
-    $query = "SELECT * FROM Result WHERE student_id = :student_id;";
+    $query = "SELECT * FROM Result WHERE student_id = :student_id ORDER BY id DESC;";
     $statement = $pdo->prepare($query);
     $statement->bindParam(":student_id", $_SESSION["user"]["id"]);
     $statement->execute();

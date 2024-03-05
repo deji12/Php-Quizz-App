@@ -4,6 +4,8 @@ if (!isset($_GET["quiz_id"])){
     header("Location: create_quiz.php");
 }
 
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +22,18 @@ if (!isset($_GET["quiz_id"])){
    <?php include 'nav.php'; ?>
 
    <div class="center" style="min-width: 75%; margin-top: 20px;">
-      <h2>Add Question</h2>  
+    <center><h4>Add Question</h4></center>
+
+      <?php
+
+        if (isset($_SESSION["question_creation_success"])) {
+
+          echo '<center><h4 style="color: dodgerblue;">' . $_SESSION["question_creation_success"] . '</h4></center> ';
+
+          unset($_SESSION["question_creation_success"]);
+        }
+
+      ?>
 
       <form method="POST" action="includes/question_and_option_helper.php">
 
@@ -56,6 +69,7 @@ if (!isset($_GET["quiz_id"])){
           <span></span>
           <label>Option 4</label>
         </div>
+        <p>Correct option:</p>
         Option 1 <input type="radio" name="correct_option" value="1" id="">
         Option 2 <input type="radio" name="correct_option" value="2" id="">
         Option 3 <input type="radio" name="correct_option" value="3" id="">

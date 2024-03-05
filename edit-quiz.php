@@ -1,16 +1,16 @@
 <?php
 session_start();
 
-if (!isset($_GET["quiz_id"])){
-    header("Location: ../index.php");
-    die();
-}
+
+require_once 'includes/db.php';
+require_once 'includes/question_and_option_models.php';
+
 
 require_once 'includes/quiz-view.php';
 
 $quiz = get_quiz($pdo, $_GET["quiz_id"]);
 
-if ($_SESSION["user"]["id"] !== $quiz["id"]) {
+if (intval($_SESSION["user"]["id"]) !== $quiz["creator_id"]) {
   header("Location: index.php");
   die();
 }
@@ -22,7 +22,7 @@ if ($_SESSION["user"]["id"] !== $quiz["id"]) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit quiz</Em></title>
     <link rel="stylesheet" href="./static/style.css">
     <link rel="stylesheet" href="./static/auth.css">
 </head>
@@ -38,9 +38,6 @@ if ($_SESSION["user"]["id"] !== $quiz["id"]) {
       <form method="POST" action="<?php echo 'includes/edit-quiz-helper.php?quiz_id=' . $_GET["quiz_id"] . '' ?>">
 
       <?php 
-
-        require_once 'includes/db.php';
-        require_once 'includes/question_and_option_models.php';
 
         echo '<div class="txt_field">
                     <input type="text" value="' . $quiz["title"] . ' " required name="title">

@@ -3,6 +3,7 @@
 function display_quizzes(){
 
     require_once 'db.php';
+    require_once 'result_model.php';
     require_once 'quiz_model.php';
 
     $quizzes = get_quizzes($pdo);

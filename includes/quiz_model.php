@@ -23,12 +23,32 @@ function get_quizzes(object $pdo){
 }
 
 function get_admin_quizzes(object $pdo){
-    $query = "SELECT * FROM Quiz WHERE creator_id = :id;";
+    $query = "SELECT * FROM Quiz WHERE creator_id = :id ORDER BY id DESC;";
     $statement = $pdo->prepare($query);
     $statement->bindParam(':id', $_SESSION["user"]["id"]);
     $statement->execute();
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
+}
+
+function update_quiz_enteries(object $pdo, int $quiz_id) {
+    $query = "UPDATE Quiz SET number_of_enteries = number_of_enteries + 1 WHERE id = :id;";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(":id", $quiz_id);
+    $statement->execute();
+}
+
+function update_quiz_passes(object $pdo, int $quiz_id) {
+    $query = "UPDATE Quiz SET number_of_passes = number_of_passes + 1 WHERE id = :id;";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(":id", $quiz_id);
+    $statement->execute();
+}
+function update_quiz_fails(object $pdo, int $quiz_id) {
+    $query = "UPDATE Quiz SET number_of_fails = number_of_fails + 1 WHERE id = :id;";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(":id", $quiz_id);
+    $statement->execute();
 }
 
 function update_quiz_title(object $pdo, string $title, int $quiz_id) {
