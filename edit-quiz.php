@@ -8,6 +8,13 @@ if (!isset($_GET["quiz_id"])){
 
 require_once 'includes/quiz-view.php';
 
+$quiz = get_quiz($pdo, $_GET["quiz_id"]);
+
+if ($_SESSION["user"]["id"] !== $quiz["id"]) {
+  header("Location: index.php");
+  die();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +41,6 @@ require_once 'includes/quiz-view.php';
 
         require_once 'includes/db.php';
         require_once 'includes/question_and_option_models.php';
-
-        $quiz = get_quiz($pdo, $_GET["quiz_id"]);
 
         echo '<div class="txt_field">
                     <input type="text" value="' . $quiz["title"] . ' " required name="title">

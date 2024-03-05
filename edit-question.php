@@ -26,7 +26,7 @@ session_start();
 
       <?php render_form(); ?>
     </div>
-    <style>
+    <style> 
         input {
             margin-right: 10px;
         }

@@ -6,17 +6,21 @@ function render_form(){
     require_once 'question_and_option_models.php';
 
     $question = get_question($pdo, $_GET["question_id"]);
+
     $options = get_options($pdo, $_GET["question_id"]);
     $question_id = $_GET['question_id'];
+    $quiz_id = $_GET["quiz_id"];
 
-    echo '<form method="POST" action="includes/question_and_option_helper.php">
+    echo '<form method="POST" action="includes/edit-question-helper.php">
 
             <div class="txt_field">
                 <input type="text" Value="' . $question["question"] . '" required name="question">
                 <span></span>
                 <label>Question</label>
             </div>
-            <input type="text" name="question_id" value="' . $question_id . '" hidden>';
+            <input type="text" name="question_id" value="' . $question_id . '" hidden>
+            <input type="text" name="quiz_id" value="' . $quiz_id . '" hidden>';
+            
 
             foreach($options as $option) {
 

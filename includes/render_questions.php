@@ -14,7 +14,7 @@ function display_questions($pdo, $quiz_id){
     
         echo '<div class="question-content">
                 <span id="error"> <br></span>
-                <span class="question">' . $question_number . '. ' . $question["question"] . ($_SESSION["user"]["id"] == $quiz["creator_id"] ? ' - <a href="edit-question.php?question_id=' . $question["id"] . '">Edit</a>' : '') . '</span><br><br>
+                <span class="question">' . $question_number . '. ' . $question["question"] . ($_SESSION["user"]["id"] == $quiz["creator_id"] ? ' - <a href="edit-question.php?question_id=' . $question["id"] . '&quiz_id=' . $quiz_id . '">Edit</a>' : '') . '</span><br><br>
 
                 <div class="options">';
                 

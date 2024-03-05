@@ -27,13 +27,21 @@ $quiz = get_quiz($pdo, intval($_GET["quiz_id"]));
    echo '<script>const quizDuration = ' . $quiz['duration'] * 60 . ';</script>';
    ?>
 
-   
-
     <div class="container" id="brief">
         <div class="question-body">
             <div class="info">
-            <?php echo '<span>' . $quiz["title"] . ' - <a href="edit-quiz.php?quiz_id=' . $_GET["quiz_id"]. '">Edit</a></span>' ?>
-                <?php echo '<span> No. questions: ' . $quiz["number_of_questions"] . '</span>' ?>
+            <?php 
+
+                if ($_SESSION["user"]["id"] == $quiz["creator_id"]) {
+                    echo '<span>' . $quiz["title"] . ' - <a href="edit-quiz.php?quiz_id=' . $_GET["quiz_id"]. '">Edit</a></span>'; 
+                } else {
+                    echo '<span>' . $quiz["title"] . '</span>';
+                }
+                
+            ?>
+
+
+            <?php echo '<span> No. questions: ' . $quiz["number_of_questions"] . '</span>' ?>
                 <!-- <span id="time" style="padding: 10px;">00:15</span> -->
             </div>
             
