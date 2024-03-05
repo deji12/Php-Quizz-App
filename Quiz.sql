@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 03, 2024 at 08:40 PM
+-- Generation Time: Mar 05, 2024 at 04:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,12 +42,36 @@ CREATE TABLE `options` (
 INSERT INTO `options` (`id`, `option_number`, `option_content`, `correct_option`, `question_id`) VALUES
 (14, 1, 'Personal home page', 0, 11),
 (15, 2, 'hypertext preprocessor', 1, 11),
-(16, 3, 'process hash print', 0, 11),
+(16, 3, 'process hash provide', 0, 11),
 (17, 4, 'print homeless people', 0, 11),
 (18, 1, 'Django rest framework', 1, 12),
 (19, 2, 'django resting framework', 0, 12),
 (20, 3, 'dick referee front', 0, 12),
-(21, 4, 'I do not know', 0, 12);
+(21, 4, 'I do not know', 0, 12),
+(22, 1, 'A programming language', 0, 13),
+(23, 2, 'A web framework', 1, 13),
+(24, 3, 'An operating system', 0, 13),
+(25, 4, 'A database management system', 0, 13),
+(26, 1, 'Jinja', 1, 14),
+(27, 2, 'Mako', 0, 14),
+(28, 3, 'Django Templates', 0, 14),
+(29, 4, 'Django HTML', 0, 14),
+(30, 1, 'To define database schema', 0, 15),
+(31, 2, 'To query the database using Python', 1, 15),
+(32, 3, 'To handle HTTP requests', 0, 15),
+(33, 4, 'To create user interfaces', 0, 15),
+(34, 1, 'To provide security for user data', 1, 16),
+(35, 2, 'To optimize database queries', 0, 16),
+(36, 3, 'To handle HTTP requests', 0, 16),
+(37, 4, 'To create user interfaces', 0, 16),
+(38, 1, 'CharField', 0, 17),
+(39, 2, 'TextField', 0, 17),
+(40, 3, 'StringField', 1, 17),
+(41, 4, 'IntegerField', 0, 17),
+(42, 1, 'Model, Template, View', 1, 18),
+(43, 2, ' Model, Template, Variable', 0, 18),
+(44, 3, 'Model, Template, Validation', 0, 18),
+(45, 4, 'Model, Test, View', 0, 18);
 
 -- --------------------------------------------------------
 
@@ -66,8 +90,14 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `question`, `quiz_id`) VALUES
-(11, 'What is the meaning of PHP', 3),
-(12, 'What is DRF?', 3);
+(11, 'What is the meaning of PHP?', 3),
+(12, 'What is DRF?', 3),
+(13, 'What is Django?', 5),
+(14, 'Which of the following is NOT a Django template engine?', 5),
+(15, 'What is the purpose of Django\'s ORM (Object-Relational Mapping)?', 5),
+(16, 'What is the purpose of Django\'s built-in authentication system?', 5),
+(17, 'Which of the following is NOT a Django Model field type?', 5),
+(18, 'What does Django\'s \"MTV\" stand for in its design pattern?', 5);
 
 -- --------------------------------------------------------
 
@@ -92,7 +122,8 @@ CREATE TABLE `Quiz` (
 --
 
 INSERT INTO `Quiz` (`id`, `title`, `duration`, `number_of_questions`, `number_of_enteries`, `number_of_passes`, `number_of_fails`, `created_at`, `creator_id`) VALUES
-(3, 'Programming  ', 5, 2, NULL, NULL, NULL, '2024-03-02 07:11:25', 3);
+(3, 'Programming  ', 5, 2, 0, 0, 0, '2024-03-02 07:11:25', 3),
+(5, 'Test Your Django Knowledge!', 10, 6, 5, 1, 4, '2024-03-05 04:50:52', 3);
 
 -- --------------------------------------------------------
 
@@ -104,9 +135,7 @@ CREATE TABLE `Result` (
   `id` int(11) NOT NULL,
   `quiz_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
-  `grade` text NOT NULL,
-  `passes` int(11) DEFAULT 0,
-  `fails` int(11) DEFAULT 0,
+  `grade` float DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT curtime()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -149,7 +178,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pwd`, `created_at`, `is_admin`) VALUES
 (1, 'Ayodeji', 'Adesola', 'tpg', 'adesolaayodeji53@gmail.com', 'tpg12', '2024-03-02 01:00:14', 1),
-(3, 'Pablo', 'Tutsi', 'pablo', 'pablotutsi@gmail.com', '$2y$12$BOBO0Xq3nrjxll6K4LMRNulAicZheyYKKHfraSHxMAqxqFouurPVC', '2024-03-02 04:41:15', 1);
+(3, 'Pablo', 'Tutsi', 'pablo', 'pablotutsi@gmail.com', '$2y$12$BOBO0Xq3nrjxll6K4LMRNulAicZheyYKKHfraSHxMAqxqFouurPVC', '2024-03-02 04:41:15', 1),
+(4, 'Solomon', 'Tutsi', 'ayo', 'adesolaayodeji18@gmail.com', '$2y$12$kmquuUJmyFrNIrizPUltmeu/tRDTztPkKduDJrYTAbB7gVqfGoiuy', '2024-03-03 11:45:15', 0);
 
 --
 -- Indexes for dumped tables
@@ -206,25 +236,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `Quiz`
 --
 ALTER TABLE `Quiz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `Result`
 --
 ALTER TABLE `Result`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `studentEntry`
@@ -236,7 +266,7 @@ ALTER TABLE `studentEntry`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
